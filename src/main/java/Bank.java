@@ -76,6 +76,12 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount > source.getAccountBalance() || amount <= 0) {
+            return false;
+        } else {
+            destination.setAccountBalance(destination.getAccountBalance() + amount); //adds amt transferred to destination
+            source.setAccountBalance(source.getAccountBalance() - amount); //subtracts amt transferred from source
+        }
         return true;
     }
 
@@ -90,6 +96,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setOwnerName(name);
     }
 
     public static int totalAccounts = 0;
@@ -102,7 +109,7 @@ public class Bank {
         /*
          * Implement this function
          */
-        return 0;
+        return totalAccounts;
     }
 
     /**

@@ -30,6 +30,8 @@ public class BankAccount {
         /*
          * Implement this function
          */
+        ownerName = name;
+        accountType = accountCategory;
     }
 
     /*
