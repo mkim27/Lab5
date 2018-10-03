@@ -30,6 +30,7 @@ public class Bank {
          * Implement this function
          */
         if (amount > bankAccount.getAccountBalance()) {
+            System.out.println("We could not complete the withdrawal.");
             return false;
         } else {
             bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
@@ -52,9 +53,11 @@ public class Bank {
          * Implement this function
          */
         if (amount > bankAccount.getAccountBalance()) {
+            System.out.println("We could not complete the deposit.");
             return false;
         } else {
             bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+            System.out.println(bankAccount.getOwnerName() + "'s new balance is " + bankAccount.getAccountBalance());
         }
         return true;
     }
@@ -77,10 +80,23 @@ public class Bank {
          * Implement this function
          */
         if (amount > source.getAccountBalance() || amount <= 0) {
+            System.out.println("We could not complete the transfer.");
             return false;
         } else {
+            double prevSrcBalance = source.getAccountBalance();
+            double prevDestBalance = destination.getAccountBalance();
+
             destination.setAccountBalance(destination.getAccountBalance() + amount); //adds amt transferred to destination
             source.setAccountBalance(source.getAccountBalance() - amount); //subtracts amt transferred from source
+
+            double currentSrcBalance = source.getAccountBalance();
+            double currentDestBalance = destination.getAccountBalance();
+
+            //previous and current balances printed for both accounts
+            System.out.println(source.getOwnerName() + "'s previous account balance: " + prevSrcBalance);
+            System.out.println(source.getOwnerName() + "'s current account balance: " + currentSrcBalance);
+            System.out.println(destination.getOwnerName() + "'s previous account balance: " + prevDestBalance);
+            System.out.println(destination.getOwnerName() + "'s current account balance: " + currentDestBalance);
         }
         return true;
     }
@@ -91,12 +107,12 @@ public class Bank {
      * @param bankAccount to change
      * @param name new name to set
      */
-
     public void changeOwnerName(final BankAccount bankAccount, final String name) {
         /*
          * Implement this function
          */
         bankAccount.setOwnerName(name);
+        System.out.println("The name for the account has been changed to " + bankAccount.getOwnerName());
     }
 
     public static int totalAccounts = 0;
