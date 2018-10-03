@@ -29,6 +29,12 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount > bankAccount.getAccountBalance()) {
+            return false;
+        } else {
+            bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+            return true;
+        }
     }
 
     /**
@@ -45,6 +51,12 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount > bankAccount.getAccountBalance()) {
+            return false;
+        } else {
+            bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+        }
+        return true;
     }
 
     /**
@@ -64,6 +76,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return true;
     }
 
     /**
@@ -89,6 +102,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return 0;
     }
 
     /**
