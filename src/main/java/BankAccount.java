@@ -32,6 +32,7 @@ public class BankAccount {
          */
         ownerName = name;
         accountType = accountCategory;
+        Bank.totalAccounts++;
     }
 
     /*
